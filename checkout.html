@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout — Joy2Buy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- ============================
+       NAVIGATION BAR
+  ============================= -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+
+      <div class="logo">Joy2Buy</div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="policies.html">Policies</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="menu-btn">
+        &#9776;
+      </button>
+
+      <button class="cart-btn" onclick="openCartDrawer()">
+        &#128722;
+        <span class="cart-count">0</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ============================
+       CHECKOUT PAGE CONTENT
+  ============================= -->
+  <section class="section">
+    <div class="container">
+
+      <h1>Checkout</h1>
+      <p style="color:#666; margin-bottom:1.5rem;">Complete your order securely.</p>
+
+      <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:2rem;">
+
+        <!-- ============================
+             LEFT SIDE — CUSTOMER FORM
+        ============================= -->
+        <div>
+
+          <h2>Customer Information</h2>
+
+          <form id="checkoutForm" style="margin-top:1rem;">
+
+            <label>
+              Full Name
+              <input type="text" required>
+            </label>
+
+            <label>
+              Email Address
+              <input type="email" required>
+            </label>
+
+            <label>
+              Phone Number
+              <input type="text" required>
+            </label>
+
+            <h2 style="margin-top:2rem;">Shipping Address</h2>
+
+            <label>
+              Address Line 1
+              <input type="text" required>
+            </label>
+
+            <label>
+              Address Line 2 (optional)
+              <input type="text">
+            </label>
+
+            <label>
+              City
+              <input type="text" required>
+            </label>
+
+            <label>
+              Postcode
+              <input type="text" required>
+            </label>
+
+            <label>
+              Country
+              <select required>
+                <option value="United Kingdom">United Kingdom</option>
+              </select>
+            </label>
+
+            <h2 style="margin-top:2rem;">Payment Method</h2>
+
+            <label style="display:flex; align-items:center; gap:0.5rem; margin-top:0.5rem;">
+              <input type="radio" name="payment" required>
+              Credit / Debit Card
+            </label>
+
+            <label style="display:flex; align-items:center; gap:0.5rem; margin-top:0.5rem;">
+              <input type="radio" name="payment">
+              PayPal
+            </label>
+
+            <label style="display:flex; align-items:center; gap:0.5rem; margin-top:0.5rem;">
+              <input type="radio" name="payment">
+              Digital Wallet
+            </label>
+
+            <button type="submit" class="btn-primary" style="margin-top:2rem; width:100%;">
+              Place Order
+            </button>
+
+            <p id="checkoutStatus" style="margin-top:1rem; color:green; font-weight:600;"></p>
+
+          </form>
+
+        </div>
+
+        <!-- ============================
+             RIGHT SIDE — ORDER SUMMARY
+        ============================= -->
+        <div style="background:#fff; padding:1.5rem; border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+          <h2>Order Summary</h2>
+
+          <div id="checkoutItems" style="margin-top:1rem;">
+            <!-- Filled by JS -->
+          </div>
+
+          <p style="margin-top:1.5rem; font-size:1.2rem;">
+            <strong>Total:</strong>
+            <span class="checkout-total">£0.00</span>
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div>
+        <h4>Joy2Buy</h4>
+        <p>Your trusted home & bedding store, offering comfort, value, and customer‑friendly service.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="products.html">Shop</a><br>
+        <a href="categories.html">Categories</a><br>
+        <a href="policies.html">Policies</a><br>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Customer Support</h4>
+        <a href="faq.html">FAQ</a><br>
+        <a href="contact.html">Help Centre</a><br>
+        <a href="policies.html">Returns</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> Joy2Buy. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ============================
+       CART DRAWER
+  ============================= -->
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="close-cart" onclick="closeCartDrawer()">
+        <img src="assets/img/icons/close.svg" width="22">
+      </button>
+    </div>
+
+    <div class="cart-body">
+      <!-- Filled by JS -->
+    </div>
+
+    <div class="cart-footer">
+      <p><strong>Total:</strong> <span class="cart-total-amount">£0.00</span></p>
+      <a href="cart.html" class="btn-primary" style="display:block; text-align:center; margin-top:1rem;">View Cart</a>
+    </div>
+  </div>
+
+  <div class="cart-backdrop" onclick="closeCartDrawer()"></div>
+
+  <!-- ============================
+       SCRIPTS
+  ============================= -->
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Render checkout items
+    function renderCheckoutItems() {
+      const container = document.getElementById("checkoutItems");
+      if (!container) return;
+
+      container.innerHTML = "";
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p>Your cart is empty.</p>";
+        return;
+      }
+
+      cart.forEach((item) => {
+        const product = products.find((p) => p.id === item.id);
+
+        const div = document.createElement("div");
+        div.style = "display:flex; justify-content:space-between; margin-bottom:0.8rem;";
+
+        div.innerHTML = `
+          <span>${product.title} × ${item.qty}</span>
+          <strong>£${(product.price * item.qty).toFixed(2)}</strong>
+        `;
+
+        container.appendChild(div);
+      });
+    }
+
+    renderCheckoutItems();
+    loadCheckout();
+
+    // Fake order placement
+    document.getElementById("checkoutForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("checkoutStatus").textContent = "Order placed successfully (demo).";
+    });
+  </script>
+
+</body>
+</html>

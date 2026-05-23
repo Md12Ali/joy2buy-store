@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Categories — Joy2Buy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- ============================
+       NAVIGATION BAR
+  ============================= -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+
+      <div class="logo">Joy2Buy</div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a class="active" href="categories.html">Categories</a></li>
+        <li><a href="policies.html">Policies</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="menu-btn">
+        &#9776;
+      </button>
+
+      <button class="cart-btn" onclick="openCartDrawer()">
+        &#128722;
+        <span class="cart-count">0</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ============================
+       CATEGORY HEADER
+  ============================= -->
+  <section class="section">
+    <div class="container">
+
+      <h1 id="categoryTitle">Category</h1>
+      <p style="color:#666; margin-bottom:1.5rem;">Browse products from this category.</p>
+
+      <!-- Product Grid -->
+      <div class="products-grid">
+        <!-- Auto-filled by app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div>
+        <h4>Joy2Buy</h4>
+        <p>Your trusted home & bedding store, offering comfort, value, and customer‑friendly service.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="products.html">Shop</a><br>
+        <a href="categories.html">Categories</a><br>
+        <a href="policies.html">Policies</a><br>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Customer Support</h4>
+        <a href="faq.html">FAQ</a><br>
+        <a href="contact.html">Help Centre</a><br>
+        <a href="policies.html">Returns</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> Joy2Buy. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ============================
+       CART DRAWER
+  ============================= -->
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="close-cart" onclick="closeCartDrawer()">
+        <img src="assets/img/icons/close.svg" width="22">
+      </button>
+    </div>
+
+    <div class="cart-body">
+      <!-- Filled by JS -->
+    </div>
+
+    <div class="cart-footer">
+      <p><strong>Total:</strong> <span class="cart-total-amount">£0.00</span></p>
+      <a href="cart.html" class="btn-primary" style="display:block; text-align:center; margin-top:1rem;">View Cart</a>
+    </div>
+  </div>
+
+  <div class="cart-backdrop" onclick="closeCartDrawer()"></div>
+
+  <!-- ============================
+       SCRIPTS
+  ============================= -->
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Set category title dynamically
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get("cat");
+
+    const titles = {
+      bedding: "Bedding",
+      curtains: "Curtains",
+      rugs: "Rugs",
+      mats: "Door & Bath Mats"
+    };
+
+    if (cat && titles[cat]) {
+      document.getElementById("categoryTitle").textContent = titles[cat];
+    } else {
+      document.getElementById("categoryTitle").textContent = "All Categories";
+    }
+  </script>
+
+</body>
+</html>

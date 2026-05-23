@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Joy2Buy — Home & Bedding Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- ============================
+       NAVIGATION BAR
+  ============================= -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+
+      <div class="logo">Joy2Buy</div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="policies.html">Policies</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="menu-btn">
+        &#9776;
+      </button>
+
+      <button class="cart-btn" onclick="openCartDrawer()">
+        &#128722;
+        <span class="cart-count">0</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ============================
+       WELCOME OFFERS
+  ============================= -->
+  <section class="welcome-offers">
+    <div class="welcome-bg" id="welcome-bg"></div>
+    <div class="container" style="text-align: center; position: relative; z-index: 2;">
+      <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; flex-wrap: wrap;">
+        <div class="offer-card" style="background: rgba(0, 0, 0, 0.35); padding: 1rem; border-radius: 10px; min-width: 200px;">
+          <h3>Free Delivery</h3>
+          <p>On orders over £30</p>
+        </div>
+        <div class="offer-card" style="background: rgba(0, 0, 0, 0.35); padding: 1rem; border-radius: 10px; min-width: 200px;">
+          <h3>Lightning Offers</h3>
+          <p>Limited time deals</p>
+        </div>
+        <div class="offer-card" style="background: rgba(0, 0, 0, 0.35); padding: 1rem; border-radius: 10px; min-width: 200px;">
+          <h3>Joy2Buy Points</h3>
+          <p>Earn points on every purchase</p>
+        </div>
+      </div>
+    </div>
+  </section>
+https://ali-design.neocities.org/
+  <!-- ============================
+       HERO SECTION
+  ============================= -->
+  <section class="hero">
+    <div class="container hero-inner">
+
+      <div class="hero-text">
+        <h1>Comfort for Every Room, Joy in Every Buy</h1>
+        <p>Discover cosy bedding, stylish rugs, and blackout curtains at everyday value prices — carefully selected for UK homes.</p>
+
+        <div class="hero-actions">
+          <a href="products.html" class="btn-primary">Shop Now</a>
+          <a href="categories.html" class="btn-outline">Browse Categories</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI generated bedroom scene" style="width:100%; border-radius:12px;">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================
+       PRODUCT SLIDERS
+  ============================= -->
+  <section class="product-sliders" style="padding: 3rem 0; background-color: #f5f7fb;">
+    <div class="container">
+
+      <!-- Slider 1: Featured Products -->
+      <div id="featured-slider" class="slider-container">
+        <h2>Featured Products</h2>
+        <div class="slider">
+          <div class="slider-track">
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Bedding Set">
+              <p>Luxury Bedding</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Curtains">
+              <p>Modern Curtains</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Rugs">
+              <p>Plush Rugs</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Mats">
+              <p>Door Mats</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pillows">
+              <p>Comfort Pillows</p>
+            </div>
+          </div>
+          <button class="slider-btn prev" onclick="moveSlider('featured', -1)">&#10094;</button>
+          <button class="slider-btn next" onclick="moveSlider('featured', 1)">&#10095;</button>
+        </div>
+      </div>
+
+      <!-- Slider 2: New Arrivals -->
+      <div id="new-slider" class="slider-container">
+        <h2>New Arrivals</h2>
+        <div class="slider">
+          <div class="slider-track">
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="New Duvet">
+              <p>Premium Duvets</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="New Curtains">
+              <p>Designer Curtains</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="New Rugs">
+              <p>Contemporary Rugs</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="New Mats">
+              <p>Stylish Mats</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="New Blankets">
+              <p>Cozy Blankets</p>
+            </div>
+          </div>
+          <button class="slider-btn prev" onclick="moveSlider('new', -1)">&#10094;</button>
+          <button class="slider-btn next" onclick="moveSlider('new', 1)">&#10095;</button>
+        </div>
+      </div>
+
+      <!-- Slider 3: Best Sellers -->
+      <div id="best-slider" class="slider-container">
+        <h2>Best Sellers</h2>
+        <div class="slider">
+          <div class="slider-track">
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Best Bedding">
+              <p>Top Bedding</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Best Curtains">
+              <p>Popular Curtains</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Best Rugs">
+              <p>Favorite Rugs</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Best Mats">
+              <p>Essential Mats</p>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Best Pillows">
+              <p>Best Pillows</p>
+            </div>
+          </div>
+          <button class="slider-btn prev" onclick="moveSlider('best', -1)">&#10094;</button>
+          <button class="slider-btn next" onclick="moveSlider('best', 1)">&#10095;</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================
+       MEMBERSHIP
+  ============================= -->
+  <section id="membership" class="section" style="background-color: #f8f9fa;">
+    <div class="container">
+      <h2 style="text-align: center;">Shop and Save with JoyPlus</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+        <div class="membership-card" style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <img src="https://via.placeholder.com/80x80?text=🚚" alt="Delivery" style="width: 80px; height: 80px; margin-bottom: 1rem;">
+          <h3>Free Delivery</h3>
+          <p>Unlimited free delivery on all orders</p>
+        </div>
+        <div class="membership-card" style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <img src="https://via.placeholder.com/80x80?text=⭐" alt="Points" style="width: 80px; height: 80px; margin-bottom: 1rem;">
+          <h3>Earn Points</h3>
+          <p>Collect Joy2Buy points on every purchase</p>
+        </div>
+        <div class="membership-card" style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <img src="https://via.placeholder.com/80x80?text=💰" alt="Deals" style="width: 80px; height: 80px; margin-bottom: 1rem;">
+          <h3>Exclusive Deals</h3>
+          <p>Special offers and early access</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       CATEGORY SECTION
+  ============================= -->
+  <section class="section">
+    <div class="container">
+      <h2>Shop by Category</h2>
+
+      <div class="category-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+
+        <a href="categories.html?cat=bedding" class="category-card" style="text-align: center; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-decoration: none; color: inherit;">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Bedding" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+          <h3>Bedding</h3>
+        </a>
+
+        <a href="categories.html?cat=curtains" class="category-card" style="text-align: center; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-decoration: none; color: inherit;">
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Curtains" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+          <h3>Curtains</h3>
+        </a>
+
+        <a href="categories.html?cat=rugs" class="category-card" style="text-align: center; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-decoration: none; color: inherit;">
+          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Rugs" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+          <h3>Rugs</h3>
+        </a>
+
+        <a href="categories.html?cat=mats" class="category-card" style="text-align: center; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-decoration: none; color: inherit;">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Mats" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+          <h3>Door & Bath Mats</h3>
+        </a>
+
+        <a href="categories.html?cat=pillows" class="category-card" style="text-align: center; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-decoration: none; color: inherit;">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pillows" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+          <h3>Pillows</h3>
+        </a>
+
+        <a href="categories.html?cat=blankets" class="category-card" style="text-align: center; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-decoration: none; color: inherit;">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Blankets" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+          <h3>Blankets</h3>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FEATURED PRODUCTS
+  ============================= -->
+  <section class="section">
+    <div class="container">
+      <h2>Featured Products</h2>
+      <p style="margin-bottom:1rem; color:#666;">Hand‑picked best sellers from our collection.</p>
+
+      <div class="products-grid">
+        <!-- Auto‑filled by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       WEEKLY DEALS
+  ============================= -->
+  <section class="section">
+    <div class="container">
+      <h2>Weekly Collections</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        <div class="deal-card" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Summer Bedding" style="width: 100%; height: 150px; object-fit: cover;">
+          <div style="padding: 1rem;">
+            <h3>Summer Essentials</h3>
+            <p>Light bedding and cooling fabrics, up to 30% off</p>
+            <a href="products.html" class="btn-outline" style="margin-top: 0.5rem; display: inline-block;">Shop Now</a>
+          </div>
+        </div>
+        <div class="deal-card" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Luxury Rugs" style="width: 100%; height: 150px; object-fit: cover;">
+          <div style="padding: 1rem;">
+            <h3>Luxury Feel, Everyday Price</h3>
+            <p>Premium rugs and mats at unbeatable prices</p>
+            <a href="products.html" class="btn-outline" style="margin-top: 0.5rem; display: inline-block;">Shop Now</a>
+          </div>
+        </div>
+        <div class="deal-card" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Window Treatments" style="width: 100%; height: 150px; object-fit: cover;">
+          <div style="padding: 1rem;">
+            <h3>Window Wonders</h3>
+            <p>Transform your space with our curtain collection</p>
+            <a href="products.html" class="btn-outline" style="margin-top: 0.5rem; display: inline-block;">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       TESTIMONIALS
+  ============================= -->
+  <section class="section" style="background-color:#f9f9f9;">
+    <div class="container">
+      <h2>What Our Customers Say</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
+
+        <div class="testimonial-card" style="background:white; padding:1.5rem; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+          <p>"Amazing quality bedding at such affordable prices. My bedroom has never looked better!"</p>
+          <cite>— Sarah M., Manchester</cite>
+        </div>
+
+        <div class="testimonial-card" style="background:white; padding:1.5rem; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+          <p>"The curtains blocked out all the light perfectly. Great for my shift work schedule."</p>
+          <cite>— John D., London</cite>
+        </div>
+
+        <div class="testimonial-card" style="background:white; padding:1.5rem; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+          <p>"Fast delivery and excellent customer service. Will definitely shop here again."</p>
+          <cite>— Emma L., Birmingham</cite>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div>
+        <h4>Joy2Buy</h4>
+        <p>Your trusted home & bedding store, offering comfort, value, and customer‑friendly service.</p>
+        <p style="margin-top: 1rem;"><strong>Download the App</strong></p>
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+          <a href="#" style="display: inline-block;"><img src="https://via.placeholder.com/120x40?text=App+Store" alt="App Store" style="height: 40px;"></a>
+          <a href="#" style="display: inline-block;"><img src="https://via.placeholder.com/120x40?text=Google+Play" alt="Google Play" style="height: 40px;"></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="products.html">Shop</a><br>
+        <a href="categories.html">Categories</a><br>
+        <a href="policies.html">Policies</a><br>
+        <a href="contact.html">Contact</a><br>
+        <a href="about.html">About Us</a>
+      </div>
+
+      <div>
+        <h4>Customer Service</h4>
+        <a href="faq.html">FAQ</a><br>
+        <a href="contact.html">Help Centre</a><br>
+        <a href="policies.html">Returns</a><br>
+        <a href="#">Your Account</a>
+      </div>
+
+      <div>
+        <h4>Stay Updated</h4>
+        <p>Subscribe to our newsletter for exclusive deals and new arrivals.</p>
+        <input type="email" placeholder="Your email" style="padding:0.5rem; border-radius:5px; border:1px solid #ddd; margin-top:0.5rem; width:100%; max-width:200px;">
+        <button class="btn-primary" style="margin-top:0.5rem; padding:0.5rem 1rem;">Subscribe</button>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> Joy2Buy. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ============================
+       CART DRAWER
+  ============================= -->
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="close-cart" onclick="closeCartDrawer()">
+        <img src="assets/img/icons/close.svg" width="22">
+      </button>
+    </div>
+
+    <div class="cart-body">
+      <!-- Filled by JS -->
+    </div>
+
+    <div class="cart-footer">
+      <p><strong>Total:</strong> <span class="cart-total-amount">£0.00</span></p>
+      <a href="cart.html" class="btn-primary" style="display:block; text-align:center; margin-top:1rem;">View Cart</a>
+    </div>
+  </div>
+
+  <div class="cart-backdrop" onclick="closeCartDrawer()"></div>
+
+  <!-- ============================
+       SCRIPTS
+  ============================= -->
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

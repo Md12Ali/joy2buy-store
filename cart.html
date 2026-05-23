@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart — Joy2Buy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- ============================
+       NAVIGATION BAR
+  ============================= -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+
+      <div class="logo">Joy2Buy</div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="policies.html">Policies</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="menu-btn">
+        &#9776;
+      </button>
+
+      <button class="cart-btn" onclick="openCartDrawer()">
+        &#128722;
+        <span class="cart-count">0</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ============================
+       CART PAGE CONTENT
+  ============================= -->
+  <section class="section">
+    <div class="container">
+
+      <h1>Your Shopping Cart</h1>
+      <p style="color:#666; margin-bottom:1.5rem;">Review your items before checkout.</p>
+
+      <div id="cartPageList">
+        <!-- Filled dynamically by JS -->
+      </div>
+
+      <div style="margin-top:2rem; padding:1.5rem; background:#fff; border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+        <h2>Order Summary</h2>
+        <p style="margin:0.5rem 0;"><strong>Total:</strong> <span class="cart-total-amount">£0.00</span></p>
+
+        <a href="checkout.html" class="btn-primary" style="display:inline-block; margin-top:1rem;">
+          Proceed to Checkout
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div>
+        <h4>Joy2Buy</h4>
+        <p>Your trusted home & bedding store, offering comfort, value, and customer‑friendly service.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="products.html">Shop</a><br>
+        <a href="categories.html">Categories</a><br>
+        <a href="policies.html">Policies</a><br>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Customer Support</h4>
+        <a href="faq.html">FAQ</a><br>
+        <a href="contact.html">Help Centre</a><br>
+        <a href="policies.html">Returns</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> Joy2Buy. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ============================
+       CART DRAWER
+  ============================= -->
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="close-cart" onclick="closeCartDrawer()">
+        <img src="assets/img/icons/close.svg" width="22">
+      </button>
+    </div>
+
+    <div class="cart-body">
+      <!-- Filled by JS -->
+    </div>
+
+    <div class="cart-footer">
+      <p><strong>Total:</strong> <span class="cart-total-amount">£0.00</span></p>
+      <a href="cart.html" class="btn-primary" style="display:block; text-align:center; margin-top:1rem;">View Cart</a>
+    </div>
+  </div>
+
+  <div class="cart-backdrop" onclick="closeCartDrawer()"></div>
+
+  <!-- ============================
+       SCRIPTS
+  ============================= -->
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Render cart items on the cart page
+    function renderCartPage() {
+      const container = document.getElementById("cartPageList");
+      if (!container) return;
+
+      container.innerHTML = "";
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p>Your cart is empty.</p>";
+        return;
+      }
+
+      cart.forEach((item) => {
+        const product = products.find((p) => p.id === item.id);
+
+        const div = document.createElement("div");
+        div.style = "display:flex; gap:1rem; background:#fff; padding:1rem; border-radius:10px; margin-bottom:1rem; box-shadow:0 10px 25px rgba(0,0,0,0.08);";
+
+        div.innerHTML = `
+          <img src="${product.image}" alt="${product.title}" style="width:120px; border-radius:10px;">
+          <div style="flex:1;">
+            <h3>${product.title}</h3>
+            <p>£${product.price.toFixed(2)} × ${item.qty}</p>
+
+            <div style="margin-top:0.5rem;">
+              <button class="btn-outline" onclick="changeQty(${item.id}, -1)">−</button>
+              <button class="btn-outline" onclick="changeQty(${item.id}, 1)">+</button>
+              <button class="btn-outline" onclick="removeFromCart(${item.id})">Remove</button>
+            </div>
+          </div>
+        `;
+
+        container.appendChild(div);
+      });
+    }
+
+    renderCartPage();
+  </script>
+
+</body>
+</html>
